@@ -1,10 +1,12 @@
 package com.message.routing.input.rest;
 
-import com.message.routing.domain.model.Message;
+import com.message.routing.domain.model.BackOfficeMessage;
 import com.message.routing.domain.port.MessagePublisherPort;
 import com.message.routing.input.mapper.MessageMapper;
-import com.message.routing.output.data.adapter.MessageDataService;
+import com.message.routing.output.data.service.MessageDataService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,16 +27,17 @@ public class MessageController {
     }
 
     @GetMapping
-    public List<Message> getAll() {
+    public List<BackOfficeMessage> getAll() {
         return messageDataService.findAll()
                 .stream()
                 .map(messageMapper::toMessage)
                 .toList();
     }
 
-    @PostMapping("publish")
-    public String publish(@RequestBody final Message message) {
-        messagePublisherPort.publish(message);
-        return String.format("Message successfully published %s", message);
+    @PostMapping
+    public ResponseEntity<String> publish(@RequestBody final BackOfficeMessage backOfficeMessage) {
+        messagePublisherPort.publish(backOfficeMessage);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body("Message successfully published");
     }
 }

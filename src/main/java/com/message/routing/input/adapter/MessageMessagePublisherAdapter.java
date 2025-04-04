@@ -1,6 +1,6 @@
 package com.message.routing.input.adapter;
 
-import com.message.routing.domain.model.Message;
+import com.message.routing.domain.model.BackOfficeMessage;
 import com.message.routing.domain.port.MessagePublisherPort;
 import com.message.routing.input.exception.TechnicalException;
 import org.slf4j.Logger;
@@ -24,10 +24,10 @@ public class MessageMessagePublisherAdapter implements MessagePublisherPort {
     }
 
     @Override
-    public void publish(final Message message) {
+    public void publish(final BackOfficeMessage backOfficeMessage) {
         try {
-            jmsTemplate.convertAndSend(queueName, message);
-            log.debug(String.format("Message Sent to queue %s, message %s", queueName, message));
+            jmsTemplate.convertAndSend(queueName, backOfficeMessage);
+            log.debug("Message Sent to queue {}, message {}", queueName, backOfficeMessage);
         } catch (final JmsException ex) {
             throw new TechnicalException(ex);
         }

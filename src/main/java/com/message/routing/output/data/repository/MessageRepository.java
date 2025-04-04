@@ -1,4 +1,4 @@
-package com.message.routing.output.data.adapter;
+package com.message.routing.output.data.repository;
 
 import com.message.routing.output.data.entity.MessageEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

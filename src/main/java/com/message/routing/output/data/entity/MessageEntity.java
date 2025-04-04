@@ -2,7 +2,7 @@ package com.message.routing.output.data.entity;
 
 import jakarta.persistence.*;
 
-@Entity(name = "Message")
+@Entity(name = "MESSAGE")
 public class MessageEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,11 +19,7 @@ public class MessageEntity {
         this.payload = payload;
         return this;
     }
-
-    public Long getId() {
-        return id;
-    }
-
+    
     public String getPayload() {
         return payload;
     }

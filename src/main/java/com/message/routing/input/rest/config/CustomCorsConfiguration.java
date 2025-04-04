@@ -1,4 +1,4 @@
-package com.message.routing.input.rest;
+package com.message.routing.input.rest.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
