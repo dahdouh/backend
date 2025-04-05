@@ -6,7 +6,6 @@ import com.message.routing.output.data.entity.MessageEntity;
 import com.message.routing.output.data.service.MessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.jms.JmsException;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
@@ -21,13 +20,12 @@ public class MessageConsumer {
     }
 
     @JmsListener(destination = "${app.queue.name}")
-
     public void receiveMessage(final Message message) {
         try {
             final BackOfficeMessage backOfficeMessage = (BackOfficeMessage) message.getPayload();
             messageService.save(new MessageEntity().setPayload(backOfficeMessage.payload()));
-            log.debug(String.format("Message received %s", message));
-        } catch (final JmsException ex) {
+            log.info(String.format("Message received %s", message));
+        } catch (final Exception ex) {
             throw new TechnicalException(ex);
         }
     }
