@@ -19,32 +19,32 @@ public class PartnerEntity {
     private FlowType flowType;
     private String description;
 
-    public PartnerEntity setAlias(final String alias) {
+    public PartnerEntity alias(final String alias) {
         this.alias = alias;
         return this;
     }
 
-    public PartnerEntity setType(final String type) {
+    public PartnerEntity type(final String type) {
         this.type = type;
         return this;
     }
 
-    public PartnerEntity setDirection(final Direction direction) {
+    public PartnerEntity direction(final Direction direction) {
         this.direction = direction;
         return this;
     }
 
-    public PartnerEntity setApplication(final String application) {
+    public PartnerEntity application(final String application) {
         this.application = application;
         return this;
     }
 
-    public PartnerEntity setFlowType(final FlowType flowType) {
+    public PartnerEntity flowType(final FlowType flowType) {
         this.flowType = flowType;
         return this;
     }
 
-    public PartnerEntity setDescription(final String description) {
+    public PartnerEntity description(final String description) {
         this.description = description;
         return this;
     }

@@ -3,18 +3,18 @@ package com.message.routing.output.data.service;
 import com.message.routing.output.data.entity.PartnerEntity;
 import com.message.routing.output.data.repository.PartnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Repository
+@Service
 @Transactional
-public class PartnerDataService {
+public class PartnerService {
     private final PartnerRepository partnerRepository;
 
     @Autowired
-    public PartnerDataService(final PartnerRepository partnerRepository) {
+    public PartnerService(final PartnerRepository partnerRepository) {
         this.partnerRepository = partnerRepository;
     }
 

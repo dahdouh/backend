@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 public class PartnerMapper {
     public PartnerEntity toPartnerEntity(final Partner partner) {
         return new PartnerEntity()
-                .setAlias(partner.alias())
-                .setType(partner.type())
-                .setDirection(partner.direction())
-                .setApplication(partner.application())
-                .setFlowType(partner.flowType())
-                .setDescription(partner.description());
+                .alias(partner.alias())
+                .type(partner.type())
+                .direction(partner.direction())
+                .application(partner.application())
+                .flowType(partner.flowType())
+                .description(partner.description());
     }
 
     public Partner toPartner(final PartnerEntity partnerEntity) {
