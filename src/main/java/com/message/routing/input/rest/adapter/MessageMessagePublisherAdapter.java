@@ -1,8 +1,8 @@
-package com.message.routing.input.adapter;
+package com.message.routing.input.rest.adapter;
 
+import com.message.routing.domain.exception.TechnicalException;
 import com.message.routing.domain.model.BackOfficeMessage;
 import com.message.routing.domain.port.MessagePublisherPort;
-import com.message.routing.input.exception.TechnicalException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

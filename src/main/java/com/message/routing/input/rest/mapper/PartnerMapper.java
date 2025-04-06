@@ -1,4 +1,4 @@
-package com.message.routing.input.mapper;
+package com.message.routing.input.rest.mapper;
 
 import com.message.routing.domain.model.Partner;
 import com.message.routing.output.data.entity.PartnerEntity;

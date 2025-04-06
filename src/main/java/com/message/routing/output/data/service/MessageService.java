@@ -1,5 +1,7 @@
 package com.message.routing.output.data.service;
 
+import com.message.routing.domain.model.BackOfficeMessage;
+import com.message.routing.input.rest.mapper.MessageMapper;
 import com.message.routing.output.data.entity.MessageEntity;
 import com.message.routing.output.data.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,16 +12,20 @@ import java.util.List;
 
 @Service
 public class MessageService {
-
     private final MessageRepository messageRepository;
+    private final MessageMapper messageMapper;
 
     @Autowired
-    public MessageService(final MessageRepository messageRepository) {
+    public MessageService(final MessageRepository messageRepository, final MessageMapper messageMapper) {
         this.messageRepository = messageRepository;
+        this.messageMapper = messageMapper;
     }
 
-    public List<MessageEntity> findAll() {
-        return messageRepository.findAll();
+    public List<BackOfficeMessage> findAll() {
+        return messageRepository.findAll()
+                .stream()
+                .map(messageMapper::toMessage)
+                .toList();
     }
 
     @Transactional

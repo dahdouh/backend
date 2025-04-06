@@ -1,7 +1,7 @@
 package com.message.routing.input.consumer;
 
+import com.message.routing.domain.exception.TechnicalException;
 import com.message.routing.domain.model.BackOfficeMessage;
-import com.message.routing.input.exception.TechnicalException;
 import com.message.routing.output.data.entity.MessageEntity;
 import com.message.routing.output.data.service.MessageService;
 import org.slf4j.Logger;

@@ -1,7 +1,7 @@
 package com.message.routing.input.rest;
 
 import com.message.routing.domain.model.Partner;
-import com.message.routing.input.mapper.PartnerMapper;
+import com.message.routing.input.rest.mapper.PartnerMapper;
 import com.message.routing.output.data.service.PartnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
