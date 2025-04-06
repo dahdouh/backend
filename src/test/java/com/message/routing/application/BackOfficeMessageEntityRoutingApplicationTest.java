@@ -1,7 +1,7 @@
 package com.message.routing.application;
 
-import com.message.routing.input.rest.MessageController;
-import com.message.routing.input.rest.PartnerController;
+import com.message.routing.input.rest.controller.MessageController;
+import com.message.routing.input.rest.controller.PartnerController;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

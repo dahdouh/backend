@@ -1,4 +1,4 @@
-package com.message.routing.input.rest;
+package com.message.routing.input.rest.controller;
 
 import com.message.routing.domain.model.BackOfficeMessage;
 import com.message.routing.domain.port.MessagePublisherPort;
