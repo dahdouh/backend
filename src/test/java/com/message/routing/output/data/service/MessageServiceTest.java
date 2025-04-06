@@ -44,9 +44,11 @@ class MessageServiceTest {
     @Test
     void shouldSaveMessageEntity() {
         //given && when
-        messageService.save(MESSAGE_ENTITY);
+        Mockito.when(messageMapper.toMessageEntity(MESSAGE)).thenReturn(MESSAGE_ENTITY);
+        messageService.save(MESSAGE);
 
         //then
+        Mockito.verify(messageMapper, only()).toMessageEntity(MESSAGE);
         Mockito.verify(messageRepository, only()).save(MESSAGE_ENTITY);
     }
 

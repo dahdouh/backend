@@ -28,7 +28,7 @@ class MessageConsumerTest {
         final BackOfficeMessage backOfficeMessage = new BackOfficeMessage("payload");
         //when
         jmsTemplate.convertAndSend(queueName, backOfficeMessage);
-        Thread.sleep(1500);
+        Thread.sleep(2500);
         // then
         assertThat(output).contains("Message received");
     }

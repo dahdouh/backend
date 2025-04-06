@@ -2,7 +2,6 @@ package com.message.routing.output.data.service;
 
 import com.message.routing.domain.model.BackOfficeMessage;
 import com.message.routing.input.rest.mapper.MessageMapper;
-import com.message.routing.output.data.entity.MessageEntity;
 import com.message.routing.output.data.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +28,7 @@ public class MessageService {
     }
 
     @Transactional
-    public void save(final MessageEntity messageEntity) {
-        messageRepository.save(messageEntity);
+    public void save(final BackOfficeMessage backOfficeMessage) {
+        messageRepository.save(messageMapper.toMessageEntity(backOfficeMessage));
     }
 }

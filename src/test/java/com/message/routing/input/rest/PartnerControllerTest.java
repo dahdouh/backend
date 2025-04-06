@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.message.routing.application.MessageRoutingApplication;
 import com.message.routing.domain.model.Partner;
 import com.message.routing.input.rest.factory.PartnerFactory;
-import com.message.routing.output.data.entity.PartnerEntity;
 import com.message.routing.output.data.service.PartnerService;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -57,7 +56,7 @@ class PartnerControllerTest {
     @Order(3)
     void shouldReturnListOfPartners() throws Exception {
         //given
-        final PartnerEntity partnerEntity = partnerService.findAll().getFirst();
+        final Partner partner = partnerService.findAll().getFirst();
         //when && then
         mockMvc.perform(get(PARTNER_PATH))
                 .andExpect(status().isOk())
@@ -65,7 +64,7 @@ class PartnerControllerTest {
                     final String contentAsString = result.getResponse().getContentAsString();
                     assertThat(contentAsString).isNotEmpty();
                     final Partner[] partners = new ObjectMapper().readValue(contentAsString, Partner[].class);
-                    assertThat(partners[0]).usingRecursiveComparison().isEqualTo(partnerEntity);
+                    assertThat(partners[0]).usingRecursiveComparison().isEqualTo(partner);
                 });
     }
 

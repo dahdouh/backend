@@ -15,26 +15,21 @@ import java.util.List;
 @RequestMapping("partner")
 public class PartnerController {
     private final PartnerService partnerService;
-    private final PartnerMapper partnerMapper;
 
     @Autowired
     public PartnerController(final PartnerService partnerService,
                              final PartnerMapper partnerMapper) {
         this.partnerService = partnerService;
-        this.partnerMapper = partnerMapper;
     }
 
     @GetMapping
     public List<Partner> getAll() {
-        return partnerService.findAll()
-                .stream()
-                .map(partnerMapper::toPartner)
-                .toList();
+        return partnerService.findAll();
     }
 
     @PostMapping
     public ResponseEntity<String> create(@RequestBody final Partner partner) {
-        partnerService.save(partnerMapper.toPartnerEntity(partner));
+        partnerService.save(partner);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
