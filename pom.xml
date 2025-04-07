@@ -64,7 +64,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-        <finalName>spring-docker</finalName>
+        <finalName>message-routing-backend</finalName>
     </build>
 
 </project>
